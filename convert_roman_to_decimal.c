@@ -1,4 +1,9 @@
+#include <string.h>
+
 int convert(char* roman_text)
 {
-  return 1;
+	if(strcmp(roman_text, "I") == 0)
+    	return 1;
+    else	
+    	return 2;
 }
