@@ -3,6 +3,7 @@
 
 roman_value_order I={'I',1,1};
 roman_value_order V={'V',5,2};
+roman_value_order X={'X',10,3};
 
 int convert(char roman_text[])
 {
@@ -30,5 +31,9 @@ roman_value_order find_value(int value)
 	{
 		return I;
 	}
-	return V;
+	if (V.character == value)
+	{
+		return V;
+	}
+	return X;
 }

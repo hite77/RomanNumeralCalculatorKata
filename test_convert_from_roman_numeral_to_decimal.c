@@ -3,29 +3,25 @@
 
 START_TEST(test_convert_I_to_decimal)
 {
-  char roman_one[] = "I";
-  ck_assert_int_eq(convert(roman_one), 1);
+  ck_assert_int_eq(convert("I"), 1);
 }
 END_TEST
 
 START_TEST(test_convert_II_to_decimal)
 {
-   char roman_two[] = "II";
-   ck_assert_int_eq(convert(roman_two), 2);
+   ck_assert_int_eq(convert("II"), 2);
 }
 END_TEST
 
 START_TEST(test_convert_III_to_decimal)
 {
-	char roman_three[] = "III";
-	ck_assert_int_eq(convert(roman_three), 3);
+	ck_assert_int_eq(convert("III"), 3);
 }
 END_TEST
 
 START_TEST(test_convert_V_to_decimal)
 {
-	char roman_five[] = "V";
-	ck_assert_int_eq(convert(roman_five), 5);
+	ck_assert_int_eq(convert("V"), 5);
 }
 END_TEST
 
@@ -35,7 +31,20 @@ START_TEST(test_convert_IV_to_decimal)
 }
 END_TEST
 
-//Also Test X=10, L=fifty, C=1 hundred, D=five hundred, and M =1000
+START_TEST(test_convert_X_to_decimal)
+{
+	ck_assert_int_eq(convert("X"), 10);
+}
+END_TEST
+
+START_TEST(test_convert_IX_to_decimal_additional_coverage)
+{
+	ck_assert_int_eq(convert("IX"), 9);
+}
+END_TEST
+
+
+//Also Test L=fifty, C=1 hundred, D=five hundred, and M =1000
 //CM = 900
 //no test cases should have more than one V,L, or D, or more than three I,X, or C
 //MMMCMXCIX should be 3999
@@ -53,6 +62,8 @@ int main(void)
 	tcase_add_test(tc1_1, test_convert_III_to_decimal);
 	tcase_add_test(tc1_1, test_convert_V_to_decimal);
 	tcase_add_test(tc1_1, test_convert_IV_to_decimal);
+	tcase_add_test(tc1_1, test_convert_X_to_decimal);
+	tcase_add_test(tc1_1, test_convert_IX_to_decimal_additional_coverage);
 
     srunner_run_all(sr, CK_ENV);
     nf = srunner_ntests_failed(sr);
