@@ -1,2 +1,3 @@
 *.o
 test_convert_from_roman_numeral_to_decimal
+test_convert_from_decimal_to_roman
