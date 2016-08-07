@@ -55,6 +55,18 @@ START_TEST(test_convert_XL_to_decimal_additional_coverage)
 }
 END_TEST
 
+START_TEST(test_convert_C_to_decimal)
+{
+	ck_assert_int_eq(convert("C"), 100);
+}
+END_TEST
+
+START_TEST(test_convert_XC_to_decimal_additional_coverage)
+{
+	ck_assert_int_eq(convert("XC"), 90);
+}
+END_TEST
+
 
 //Also Test C=1 hundred, D=five hundred, and M =1000
 //CM = 900
@@ -78,6 +90,8 @@ int main(void)
 	tcase_add_test(tc1_1, test_convert_IX_to_decimal_additional_coverage);
 	tcase_add_test(tc1_1, test_convert_L_to_decimal);
 	tcase_add_test(tc1_1, test_convert_XL_to_decimal_additional_coverage);
+	tcase_add_test(tc1_1, test_convert_C_to_decimal);
+	tcase_add_test(tc1_1, test_convert_XC_to_decimal_additional_coverage);
 
     srunner_run_all(sr, CK_ENV);
     nf = srunner_ntests_failed(sr);
