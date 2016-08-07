@@ -22,6 +22,13 @@ START_TEST(test_convert_III_to_decimal)
 }
 END_TEST
 
+START_TEST(test_convert_V_to_decimal)
+{
+	char roman_five[] = "V";
+	ck_assert_int_eq(convert(roman_five), 5);
+}
+END_TEST
+
 //Test for V so it knows that it is 5
 //Also Test X=10, L=fifty, C=1 hundred, D=five hundred, and M =1000
 //Test for IV should subtract one and be 4
@@ -40,6 +47,7 @@ int main(void)
     tcase_add_test(tc1_1, test_convert_I_to_decimal);
 	tcase_add_test(tc1_1, test_convert_II_to_decimal);
 	tcase_add_test(tc1_1, test_convert_III_to_decimal);
+	tcase_add_test(tc1_1, test_convert_V_to_decimal);
 
     srunner_run_all(sr, CK_ENV);
     nf = srunner_ntests_failed(sr);
