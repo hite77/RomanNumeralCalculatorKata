@@ -3,7 +3,6 @@
 
 typedef struct roman_value_orders
 {
-	int character;
 	int value;
 	int order;
 } roman_value_order;

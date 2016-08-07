@@ -1,9 +1,9 @@
 #include <string.h>
 #include "convert_roman_to_decimal.h"
 
-roman_value_order I={'I',1,1};
-roman_value_order V={'V',5,2};
-roman_value_order X={'X',10,3};
+roman_value_order I={1,1};
+roman_value_order V={5,2};
+roman_value_order X={10,3};
 
 int convert(char roman_text[])
 {
@@ -27,13 +27,9 @@ int convert(char roman_text[])
 
 roman_value_order find_value(int value)
 {
-	if (I.character == value)
-	{
-		return I;
+	switch(value) {
+		case 'V' : return V; 
+		case 'X' : return X;
+		default: return I;
 	}
-	if (V.character == value)
-	{
-		return V;
-	}
-	return X;
 }
