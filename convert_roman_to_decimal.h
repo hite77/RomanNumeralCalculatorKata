@@ -7,7 +7,7 @@ typedef struct roman_value_orders
 	int order;
 } roman_value_order;
 
-int convert(char * roman_text);
+int convert_to_decimal(char * roman_text);
 roman_value_order find_value(int value);
 
 #endif /* CONVERT_ROMAN_TO_DECIMAL_H*/

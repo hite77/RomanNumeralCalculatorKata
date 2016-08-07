@@ -3,7 +3,7 @@
 
 START_TEST(test_convert_1000_to_roman)
 {
-  ck_assert_str_eq(convert(1), "M");
+  ck_assert_str_eq(convert_to_roman(1000), "M");
 }
 END_TEST
 

@@ -9,7 +9,7 @@ roman_value_order C={100,5};
 roman_value_order D={500,6};
 roman_value_order M={1000,7};
 
-int convert(char roman_text[])
+int convert_to_decimal(char roman_text[])
 {
 	int result = 0;
 	for(int i = 0; roman_text[i] != '\0'; i++) {
