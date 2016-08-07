@@ -7,6 +7,7 @@ roman_value_order X={10,3};
 roman_value_order L={50,4};
 roman_value_order C={100,5};
 roman_value_order D={500,6};
+roman_value_order M={1000,7};
 
 int convert(char roman_text[])
 {
@@ -36,6 +37,7 @@ roman_value_order find_value(int value)
 		case 'L' : return L;
 		case 'C' : return C;
 		case 'D' : return D;
+		case 'M' : return M;
 		default: return I;
 	}
 }
