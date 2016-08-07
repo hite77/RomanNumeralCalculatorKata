@@ -2,6 +2,6 @@
 #define CONVERT_DECIMAL_TO_ROMAN_H
 
 
-char * convert_to_roman(int decimal);
+void convert_to_roman(int decimal, char* result);
 
 #endif /* CONVERT_DECIMAL_TO_ROMAN_H*/

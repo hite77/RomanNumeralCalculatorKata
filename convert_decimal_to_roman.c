@@ -1,5 +1,11 @@
-char * convert_to_roman(int decimal)
+void convert_to_roman(int decimal, char* result)
 {
-	static char result[]= "M";
-	return result;
+	int position = 0;
+        
+	while (decimal >= 1000)
+	{
+		result[position++]='M';
+		decimal -= 1000;
+	}
+	result[position] = '\0';
 }
