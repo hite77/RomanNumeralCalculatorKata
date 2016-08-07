@@ -43,8 +43,20 @@ START_TEST(test_convert_IX_to_decimal_additional_coverage)
 }
 END_TEST
 
+START_TEST(test_convert_L_to_decimal)
+{
+	ck_assert_int_eq(convert("L"), 50);
+}
+END_TEST
 
-//Also Test L=fifty, C=1 hundred, D=five hundred, and M =1000
+START_TEST(test_convert_XL_to_decimal_additional_coverage)
+{
+	ck_assert_int_eq(convert("XL"), 40);
+}
+END_TEST
+
+
+//Also Test C=1 hundred, D=five hundred, and M =1000
 //CM = 900
 //no test cases should have more than one V,L, or D, or more than three I,X, or C
 //MMMCMXCIX should be 3999
@@ -64,6 +76,8 @@ int main(void)
 	tcase_add_test(tc1_1, test_convert_IV_to_decimal);
 	tcase_add_test(tc1_1, test_convert_X_to_decimal);
 	tcase_add_test(tc1_1, test_convert_IX_to_decimal_additional_coverage);
+	tcase_add_test(tc1_1, test_convert_L_to_decimal);
+	tcase_add_test(tc1_1, test_convert_XL_to_decimal_additional_coverage);
 
     srunner_run_all(sr, CK_ENV);
     nf = srunner_ntests_failed(sr);
