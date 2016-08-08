@@ -4,17 +4,6 @@ LIBS=-lcheck
 
 default: test
 
-##all: sum2ints
-
-##sum2ints: main.o implementation.o
-##	$(CC) -o sum2ints main.o implementation.o
-
-##main.o: main.c implementation.h
-##	$(CC) $(CFLAGS) -c main.c
-
-##implementation.o: implementation.c implementation.h
-##	$(CC) $(CFLAGS) -c implementation.c
-
 clean:
 	rm -f *.o test_convert_from_roman_numeral_to_decimal test_convert_from_decimal_to_roman test_roman_calculator
 
