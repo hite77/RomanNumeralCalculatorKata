@@ -31,5 +31,10 @@ void convert_to_roman(int decimal, char* result)
     
     convert_decimal_place(result, tens,'X','L','C');
 
+    decimal = decimal - tens * 10;
+    int ones = decimal;
+
+    convert_decimal_place(result, ones,'I','V','X');
+
 	result[position] = '\0';
 }
