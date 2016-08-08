@@ -7,5 +7,12 @@ void convert_to_roman(int decimal, char* result)
 		result[position++]='M';
 		decimal -= 1000;
 	}
+	
+	if (decimal > 0)
+	{
+		result[position++]='C';
+	}
+
 	result[position] = '\0';
 }
+

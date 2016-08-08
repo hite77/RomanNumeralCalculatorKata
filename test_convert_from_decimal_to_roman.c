@@ -28,6 +28,20 @@ START_TEST(test_convert_2000_to_roman)
 }
 END_TEST
 
+START_TEST(test_convert_3000_to_roman_added_coverage)
+{
+  convert_to_roman(3000, result_str);
+  ck_assert_str_eq(result_str, "MMM");
+}
+END_TEST
+
+START_TEST(test_convert_100_to_roman)
+{
+  convert_to_roman(100, result_str);
+  ck_assert_str_eq(result_str, "C");
+}
+END_TEST
+
 int main(void)
 {
     Suite *s1 = suite_create("Core");
@@ -39,6 +53,8 @@ int main(void)
     tcase_add_checked_fixture(test_convert_decimal_to_roman, setup, teardown);
     tcase_add_test(test_convert_decimal_to_roman, test_convert_1000_to_roman);
 	tcase_add_test(test_convert_decimal_to_roman, test_convert_2000_to_roman);
+	tcase_add_test(test_convert_decimal_to_roman, test_convert_3000_to_roman_added_coverage);
+	tcase_add_test(test_convert_decimal_to_roman, test_convert_100_to_roman);
 
     srunner_run_all(sr, CK_ENV);
     nf = srunner_ntests_failed(sr);
