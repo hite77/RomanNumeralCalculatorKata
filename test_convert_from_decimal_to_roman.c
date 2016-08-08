@@ -56,6 +56,15 @@ START_TEST(test_convert_1200_to_roman)
 }
 END_TEST
 
+START_TEST(test_convert_1300_to_roman)
+{
+  convert_to_roman(1300, result_str);
+  ck_assert_str_eq(result_str, "MCCC");
+}
+END_TEST
+
+// test for 3888 MMMDCCCLXXXVIII
+// test for 3999 MMMCMXCIX
 
 int main(void)
 {
@@ -72,6 +81,7 @@ int main(void)
 	tcase_add_test(test_convert_decimal_to_roman, test_convert_100_to_roman);
 	tcase_add_test(test_convert_decimal_to_roman, test_convert_200_to_roman);
 	tcase_add_test(test_convert_decimal_to_roman, test_convert_1200_to_roman);
+	tcase_add_test(test_convert_decimal_to_roman, test_convert_1300_to_roman);
 
     srunner_run_all(sr, CK_ENV);
     nf = srunner_ntests_failed(sr);
