@@ -15,8 +15,8 @@ default: test
 ##implementation.o: implementation.c implementation.h
 ##	$(CC) $(CFLAGS) -c implementation.c
 
-clean: 
-	rm *.o test_convert_from_roman_numeral_to_decimal test_convert_from_decimal_to_roman test_roman_calculator
+clean:
+	rm -f *.o test_convert_from_roman_numeral_to_decimal test_convert_from_decimal_to_roman test_roman_calculator
 
 convert_roman_to_decimal.o: convert_roman_to_decimal.c convert_roman_to_decimal.h
 	$(CC) $(CFLAGS) -c convert_roman_to_decimal.c

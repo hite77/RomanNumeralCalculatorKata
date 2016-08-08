@@ -1,6 +1,12 @@
 #include <string.h>
 #include "convert_roman_to_decimal.h"
 
+typedef struct roman_value_orders
+{
+	int value;
+	int order;
+} roman_value_order;
+
 roman_value_order I={1,1};
 roman_value_order V={5,2};
 roman_value_order X={10,3};
@@ -8,6 +14,19 @@ roman_value_order L={50,4};
 roman_value_order C={100,5};
 roman_value_order D={500,6};
 roman_value_order M={1000,7};
+
+roman_value_order find_value(int value)
+{
+	switch(value) {
+		case 'V' : return V; 
+		case 'X' : return X;
+		case 'L' : return L;
+		case 'C' : return C;
+		case 'D' : return D;
+		case 'M' : return M;
+		default: return I;
+	}
+}
 
 int convert_to_decimal(char roman_text[])
 {
@@ -29,15 +48,3 @@ int convert_to_decimal(char roman_text[])
 	return result;
 }
 
-roman_value_order find_value(int value)
-{
-	switch(value) {
-		case 'V' : return V; 
-		case 'X' : return X;
-		case 'L' : return L;
-		case 'C' : return C;
-		case 'D' : return D;
-		case 'M' : return M;
-		default: return I;
-	}
-}
