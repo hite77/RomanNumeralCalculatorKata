@@ -8,8 +8,15 @@ void convert_to_roman(int decimal, char* result)
 		decimal -= 1000;
 	}
 	
-	if (decimal > 0)
+	int hundreds = decimal / 100;
+
+	if (hundreds==1)
 	{
+		result[position++]='C';
+	}
+	else if (hundreds==2)
+	{
+		result[position++]='C';
 		result[position++]='C';
 	}
 
