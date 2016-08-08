@@ -231,8 +231,19 @@ START_TEST(test_convert_9_to_roman)
 }
 END_TEST
 
-// test for 3888 MMMDCCCLXXXVIII
-// test for 3999 MMMCMXCIX
+START_TEST(test_convert_3888_to_roman)
+{
+  convert_to_roman(3888, result_str);
+  ck_assert_str_eq(result_str, "MMMDCCCLXXXVIII");
+}
+END_TEST
+
+START_TEST(test_convert_3999_to_roman)
+{
+  convert_to_roman(3999, result_str);
+  ck_assert_str_eq(result_str, "MMMCMXCIX");
+}
+END_TEST
 
 int main(void)
 {
@@ -274,6 +285,8 @@ int main(void)
 	tcase_add_test(test_convert_decimal_to_roman, test_convert_7_to_roman);
 	tcase_add_test(test_convert_decimal_to_roman, test_convert_8_to_roman);
 	tcase_add_test(test_convert_decimal_to_roman, test_convert_9_to_roman);
+	tcase_add_test(test_convert_decimal_to_roman, test_convert_3888_to_roman);
+	tcase_add_test(test_convert_decimal_to_roman, test_convert_3999_to_roman);	
 
     srunner_run_all(sr, CK_ENV);
     nf = srunner_ntests_failed(sr);
