@@ -25,5 +25,11 @@ void convert_to_roman(int decimal, char* result)
 	
 	int hundreds = decimal / 100;
     convert_decimal_place(result, hundreds,'C','D','M');
+    
+    decimal = decimal - hundreds * 100;
+    int tens = decimal / 10;
+    
+    convert_decimal_place(result, tens,'X','L','C');
+
 	result[position] = '\0';
 }

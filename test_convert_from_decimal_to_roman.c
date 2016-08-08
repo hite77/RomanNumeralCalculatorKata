@@ -105,6 +105,69 @@ START_TEST(test_convert_900_to_roman)
 }
 END_TEST
 
+START_TEST(test_convert_110_to_roman)
+{
+  convert_to_roman(110, result_str);
+  ck_assert_str_eq(result_str, "CX");
+}
+END_TEST
+
+START_TEST(test_convert_20_to_roman)
+{
+  convert_to_roman(20, result_str);
+  ck_assert_str_eq(result_str, "XX");
+}
+END_TEST
+
+START_TEST(test_convert_30_to_roman)
+{
+  convert_to_roman(30, result_str);
+  ck_assert_str_eq(result_str, "XXX");
+}
+END_TEST
+
+START_TEST(test_convert_40_to_roman)
+{
+  convert_to_roman(40, result_str);
+  ck_assert_str_eq(result_str, "XL");
+}
+END_TEST
+
+START_TEST(test_convert_50_to_roman)
+{
+  convert_to_roman(50, result_str);
+  ck_assert_str_eq(result_str, "L");
+}
+END_TEST
+
+START_TEST(test_convert_60_to_roman)
+{
+  convert_to_roman(60, result_str);
+  ck_assert_str_eq(result_str, "LX");
+}
+END_TEST
+
+START_TEST(test_convert_70_to_roman)
+{
+  convert_to_roman(70, result_str);
+  ck_assert_str_eq(result_str, "LXX");
+}
+END_TEST
+
+START_TEST(test_convert_80_to_roman)
+{
+  convert_to_roman(80, result_str);
+  ck_assert_str_eq(result_str, "LXXX");
+}
+END_TEST
+
+START_TEST(test_convert_90_to_roman)
+{
+  convert_to_roman(90, result_str);
+  ck_assert_str_eq(result_str, "XC");
+}
+END_TEST
+
 // test for 3888 MMMDCCCLXXXVIII
 // test for 3999 MMMCMXCIX
 
@@ -130,6 +193,15 @@ int main(void)
 	tcase_add_test(test_convert_decimal_to_roman, test_convert_700_to_roman);
 	tcase_add_test(test_convert_decimal_to_roman, test_convert_800_to_roman);
 	tcase_add_test(test_convert_decimal_to_roman, test_convert_900_to_roman);
+	tcase_add_test(test_convert_decimal_to_roman, test_convert_110_to_roman);
+	tcase_add_test(test_convert_decimal_to_roman, test_convert_20_to_roman);
+	tcase_add_test(test_convert_decimal_to_roman, test_convert_30_to_roman);
+	tcase_add_test(test_convert_decimal_to_roman, test_convert_40_to_roman);
+	tcase_add_test(test_convert_decimal_to_roman, test_convert_50_to_roman);
+	tcase_add_test(test_convert_decimal_to_roman, test_convert_60_to_roman);
+	tcase_add_test(test_convert_decimal_to_roman, test_convert_70_to_roman);
+	tcase_add_test(test_convert_decimal_to_roman, test_convert_80_to_roman);
+	tcase_add_test(test_convert_decimal_to_roman, test_convert_90_to_roman);
 
     srunner_run_all(sr, CK_ENV);
     nf = srunner_ntests_failed(sr);
