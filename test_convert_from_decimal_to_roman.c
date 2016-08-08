@@ -63,6 +63,48 @@ START_TEST(test_convert_1300_to_roman)
 }
 END_TEST
 
+START_TEST(test_convert_400_to_roman)
+{
+  convert_to_roman(400, result_str);
+  ck_assert_str_eq(result_str, "CD");
+}
+END_TEST
+
+START_TEST(test_convert_500_to_roman)
+{
+  convert_to_roman(500, result_str);
+  ck_assert_str_eq(result_str, "D");
+}
+END_TEST
+
+START_TEST(test_convert_600_to_roman)
+{
+  convert_to_roman(600, result_str);
+  ck_assert_str_eq(result_str, "DC");
+}
+END_TEST
+
+START_TEST(test_convert_700_to_roman)
+{
+  convert_to_roman(700, result_str);
+  ck_assert_str_eq(result_str, "DCC");
+}
+END_TEST
+
+START_TEST(test_convert_800_to_roman)
+{
+  convert_to_roman(800, result_str);
+  ck_assert_str_eq(result_str, "DCCC");
+}
+END_TEST
+
+START_TEST(test_convert_900_to_roman)
+{
+  convert_to_roman(900, result_str);
+  ck_assert_str_eq(result_str, "CM");
+}
+END_TEST
+
 // test for 3888 MMMDCCCLXXXVIII
 // test for 3999 MMMCMXCIX
 
@@ -82,6 +124,12 @@ int main(void)
 	tcase_add_test(test_convert_decimal_to_roman, test_convert_200_to_roman);
 	tcase_add_test(test_convert_decimal_to_roman, test_convert_1200_to_roman);
 	tcase_add_test(test_convert_decimal_to_roman, test_convert_1300_to_roman);
+	tcase_add_test(test_convert_decimal_to_roman, test_convert_400_to_roman);
+	tcase_add_test(test_convert_decimal_to_roman, test_convert_500_to_roman);
+	tcase_add_test(test_convert_decimal_to_roman, test_convert_600_to_roman);
+	tcase_add_test(test_convert_decimal_to_roman, test_convert_700_to_roman);
+	tcase_add_test(test_convert_decimal_to_roman, test_convert_800_to_roman);
+	tcase_add_test(test_convert_decimal_to_roman, test_convert_900_to_roman);
 
     srunner_run_all(sr, CK_ENV);
     nf = srunner_ntests_failed(sr);
