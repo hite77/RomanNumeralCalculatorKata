@@ -1,4 +1,5 @@
 #include <string.h>
+#include <stdlib.h>
 #include "convert_roman_to_decimal.h"
 
 typedef struct roman_value_orders
@@ -39,11 +40,15 @@ int convert_to_decimal(char roman_text[])
 		{
 			result += current_value.value;
 		}
-		else
+		else if (next_value.value / current_value.value <= 10)
 		{
 			result += (next_value.value-current_value.value);
 			i++;
 		} 	
+		else
+		{
+			exit(EXIT_FAILURE);
+		}
     }
 	return result;
 }

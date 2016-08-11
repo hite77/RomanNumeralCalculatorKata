@@ -97,6 +97,18 @@ START_TEST(test_convert_MMMCMXCIX_to_decimal_additional_coverage)
 }
 END_TEST
 
+START_TEST(test_convert_IM_Exits_with_1)
+{
+	convert_to_decimal("IM");
+}
+END_TEST
+
+START_TEST(test_convert_XD_Exits_with_1)
+{
+	convert_to_decimal("XD");
+}
+END_TEST
+
 int main(void)
 {
     Suite *s1 = suite_create("Core");
@@ -121,6 +133,9 @@ int main(void)
 	tcase_add_test(tc1_1, test_convert_M_to_decimal);
 	tcase_add_test(tc1_1, test_convert_CM_to_decimal_additional_coverage);
 	tcase_add_test(tc1_1, test_convert_MMMCMXCIX_to_decimal_additional_coverage);
+	tcase_add_exit_test(tc1_1, test_convert_IM_Exits_with_1, 1);
+	tcase_add_exit_test(tc1_1, test_convert_XD_Exits_with_1, 1);
+	tcase_add_exit_test(tc1_1, test_convert_MMMCMXCIX_to_decimal_additional_coverage, 0);
 
     srunner_run_all(sr, CK_ENV);
     nf = srunner_ntests_failed(sr);
