@@ -16,49 +16,49 @@ void teardown(void)
 
 START_TEST(test_add_D_and_D)
 {
-  add("D","D",result_str);
+  add(result_str,"D","D");
   ck_assert_str_eq(result_str, "M");
 }
 END_TEST
 
 START_TEST(test_add_XIV_and_LX)
 {
-    add("XIV","LX",result_str);
+    add(result_str,"XIV","LX");
     ck_assert_str_eq(result_str, "LXXIV");
 }
 END_TEST
 
 START_TEST(test_add_XX_and_II)
 {
-    add("XX","II",result_str);
+    add(result_str,"XX","II");
     ck_assert_str_eq(result_str, "XXII");
 }
 END_TEST
 
 START_TEST(test_add_MCMXCIX_and_I)
 {
-    add("MCMXCIX","I",result_str);
+    add(result_str,"MCMXCIX","I");
     ck_assert_str_eq(result_str, "MM");
 }
 END_TEST
 
 START_TEST(test_subtract_MCMXCIX_and_I)
 {
-    subtract("MCMXCIX","I",result_str);
+    subtract(result_str,"MCMXCIX","I");
     ck_assert_str_eq(result_str, "MCMXCVIII");
 }
 END_TEST
 
 START_TEST(test_subtract_MM_and_I)
 {
-    subtract("MM","I",result_str);
+    subtract(result_str,"MM","I");
     ck_assert_str_eq(result_str, "MCMXCIX");
 }
 END_TEST
 
 START_TEST(test_subtract_CII_and_LV)
 {
-    subtract("CII","LV",result_str);
+    subtract(result_str,"CII","LV");
     ck_assert_str_eq(result_str, "XLVII");
 }
 END_TEST

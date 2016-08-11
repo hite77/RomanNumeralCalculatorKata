@@ -15,7 +15,7 @@ void convert_decimal_place(char* result, int value, int lowest_value, int mid_va
 	}
 }
 
-void convert_to_roman(int decimal, char* result)
+void convert_to_roman(char* result, int decimal)
 {    
 	while (decimal >= 1000)
 	{
