@@ -9,6 +9,7 @@ typedef struct roman_value_orders
 } roman_value_order;
 
 int max_multiplier = 10;
+int max_roman_integer = 3999;
 
 roman_value_order I={1,1};
 roman_value_order V={5,2};
@@ -50,6 +51,10 @@ int convert_to_decimal(char roman_text[])
 		else
 		{
 			exit(1);
+		}
+		if (result > max_roman_integer)
+		{
+			exit(2);
 		}
     }
 	return result;

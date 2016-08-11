@@ -75,6 +75,24 @@ START_TEST(test_add_Anything_and_IM_gives_error)
 }
 END_TEST
 
+START_TEST(test_value_over_4000_entered_first_entry)
+{
+  subtract(result_str,"MMMM","X");
+}
+END_TEST
+
+START_TEST(test_value_over_4000_entered_second_entry)
+{
+  add(result_str,"X","MMMM");
+}
+END_TEST
+
+START_TEST(test_adding_values_gives_4000)
+{
+  add(result_str,"MMM","M");
+}
+END_TEST
+
 int main(void)
 {
     Suite *s1 = suite_create("Core");
@@ -91,9 +109,13 @@ int main(void)
     tcase_add_test(test_roman_calculator, test_subtract_MCMXCIX_and_I);
     tcase_add_test(test_roman_calculator, test_subtract_MM_and_I);
     tcase_add_test(test_roman_calculator, test_subtract_CII_and_LV);
+    tcase_add_exit_test(test_roman_calculator, test_subtract_CII_and_LV, 0);
     tcase_add_exit_test(test_roman_calculator, test_add_IM_and_Anything_gives_error, 1);
     tcase_add_exit_test(test_roman_calculator, test_add_Anything_and_IM_gives_error, 1);
-
+    tcase_add_exit_test(test_roman_calculator, test_value_over_4000_entered_first_entry, 2);
+    tcase_add_exit_test(test_roman_calculator, test_value_over_4000_entered_second_entry, 2);
+    tcase_add_exit_test(test_roman_calculator, test_adding_values_gives_4000, 2);
+    
     srunner_run_all(sr, CK_ENV);
     nf = srunner_ntests_failed(sr);
     srunner_free(sr);
