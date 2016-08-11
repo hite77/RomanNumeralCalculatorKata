@@ -1,4 +1,7 @@
 int position = 0;
+int ROMAN_M_1000 = 1000;
+int ROMAN_C_100 = 100;
+int ROMAN_X_10 = 10;
 
 void convert_decimal_place(char* result, int value, int lowest_value, int mid_value, int high_value)
 {
@@ -17,21 +20,21 @@ void convert_decimal_place(char* result, int value, int lowest_value, int mid_va
 
 void convert_to_roman(char* result, int decimal)
 {    
-	while (decimal >= 1000)
+	while (decimal >= ROMAN_M_1000)
 	{
 		result[position++]='M';
-		decimal -= 1000;
+		decimal -= ROMAN_M_1000;
 	}
 	
-	int hundreds = decimal / 100;
+	int hundreds = decimal / ROMAN_C_100;
     convert_decimal_place(result, hundreds,'C','D','M');
     
-    decimal = decimal - hundreds * 100;
-    int tens = decimal / 10;
+    decimal = decimal - hundreds * ROMAN_C_100;
+    int tens = decimal / ROMAN_X_10;
     
     convert_decimal_place(result, tens,'X','L','C');
 
-    decimal = decimal - tens * 10;
+    decimal = decimal - tens * ROMAN_X_10;
     int ones = decimal;
 
     convert_decimal_place(result, ones,'I','V','X');

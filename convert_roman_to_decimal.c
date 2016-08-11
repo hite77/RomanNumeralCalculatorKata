@@ -8,6 +8,8 @@ typedef struct roman_value_orders
 	int order;
 } roman_value_order;
 
+int max_multiplier = 10;
+
 roman_value_order I={1,1};
 roman_value_order V={5,2};
 roman_value_order X={10,3};
@@ -40,7 +42,7 @@ int convert_to_decimal(char roman_text[])
 		{
 			result += current_value.value;
 		}
-		else if (next_value.value / current_value.value <= 10)
+		else if (next_value.value / current_value.value <= max_multiplier)
 		{
 			result += (next_value.value-current_value.value);
 			i++;
