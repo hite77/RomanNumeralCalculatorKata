@@ -16,7 +16,7 @@ Code will Exit with the following:
 Exit 0: Nothing wrong
 Exit 1: You tried to enter a roman digit with a multiplier too large (smaller than 10 times: aka IM)
 Exit 2: 4000 or greater entered, or result of add greater than 4000
-
+Exit 3: V, L, or D more than one (VV is invalid)
 
 Thanks,
 
