@@ -63,6 +63,18 @@ START_TEST(test_subtract_CII_and_LV)
 }
 END_TEST
 
+START_TEST(test_add_IM_and_Anything_gives_error)
+{
+  add(result_str,"IM","D");
+}
+END_TEST
+
+START_TEST(test_add_Anything_and_IM_gives_error)
+{
+  add(result_str,"D","IM");
+}
+END_TEST
+
 int main(void)
 {
     Suite *s1 = suite_create("Core");
@@ -79,7 +91,9 @@ int main(void)
     tcase_add_test(test_roman_calculator, test_subtract_MCMXCIX_and_I);
     tcase_add_test(test_roman_calculator, test_subtract_MM_and_I);
     tcase_add_test(test_roman_calculator, test_subtract_CII_and_LV);
-    
+    tcase_add_exit_test(test_roman_calculator, test_add_IM_and_Anything_gives_error, 1);
+    tcase_add_exit_test(test_roman_calculator, test_add_Anything_and_IM_gives_error, 1);
+
     srunner_run_all(sr, CK_ENV);
     nf = srunner_ntests_failed(sr);
     srunner_free(sr);

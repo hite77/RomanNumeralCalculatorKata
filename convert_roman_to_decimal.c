@@ -49,7 +49,7 @@ int convert_to_decimal(char roman_text[])
 		} 	
 		else
 		{
-			exit(EXIT_FAILURE);
+			exit(1);
 		}
     }
 	return result;
