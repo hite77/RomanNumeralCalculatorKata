@@ -11,12 +11,12 @@ If you make target docker: run make docker, it will build and run a docker to ru
 
 It does not compile on mac now, it has a -lrt option that Mac does not need, but Linux does need.
 
-Code will Exit with the following:
-
+add/subtract/convert when appropriate will exit with the following:
 Exit 0: Nothing wrong
 Exit 1: You tried to enter a roman digit with a multiplier too large (smaller than 10 times: aka IM)
 Exit 2: 4000 or greater entered, or result of add greater than 4000
 Exit 3: V, L, or D more than one (VV is invalid)
+Exit 4: Subtract gives negative value or zero.
 
 Thanks,
 

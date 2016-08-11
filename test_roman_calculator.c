@@ -93,6 +93,18 @@ START_TEST(test_adding_values_gives_4000)
 }
 END_TEST
 
+START_TEST(test_subtraction_that_gives_negative_value_will_cause_error)
+{
+  subtract(result_str,"L","M");
+}
+END_TEST
+
+START_TEST(test_subtraction_that_gives_zero_value_will_cause_error)
+{
+  subtract(result_str,"L","L");
+}
+END_TEST
+
 int main(void)
 {
     Suite *s1 = suite_create("Core");
@@ -115,6 +127,8 @@ int main(void)
     tcase_add_exit_test(test_roman_calculator, test_value_over_4000_entered_first_entry, 2);
     tcase_add_exit_test(test_roman_calculator, test_value_over_4000_entered_second_entry, 2);
     tcase_add_exit_test(test_roman_calculator, test_adding_values_gives_4000, 2);
+    tcase_add_exit_test(test_roman_calculator, test_subtraction_that_gives_negative_value_will_cause_error, 4);
+    tcase_add_exit_test(test_roman_calculator, test_subtraction_that_gives_zero_value_will_cause_error, 4);
     
     srunner_run_all(sr, CK_ENV);
     nf = srunner_ntests_failed(sr);
