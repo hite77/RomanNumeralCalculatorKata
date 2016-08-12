@@ -92,29 +92,37 @@ START_TEST(test_add_Anything_and_IM_gives_error)
 }
 END_TEST
 
-// START_TEST(test_value_over_4000_entered_first_entry)
-// {
-//   subtract(result_str,"MMMM","X");
-// }
-// END_TEST
+START_TEST(test_value_over_4000_entered_first_entry)
+{
+  subtract(&result_value,"MMMM","X");
+  ck_assert_int_eq(result_value.error_code, 1);
+  ck_assert_str_eq(result_value.result_str, "INVALID");
+}
+END_TEST
 
-// START_TEST(test_value_over_4000_entered_second_entry)
-// {
-//   add(result_str,"X","MMMM");
-// }
-// END_TEST
+START_TEST(test_value_over_4000_entered_second_entry)
+{
+  add(&result_value,"X","MMMM");
+  ck_assert_int_eq(result_value.error_code, 1);
+  ck_assert_str_eq(result_value.result_str, "INVALID");
+}
+END_TEST
 
-// START_TEST(test_adding_values_gives_4000)
-// {
-//   add(result_str,"MMM","M");
-// }
-// END_TEST
+START_TEST(test_adding_values_gives_4000)
+{
+  add(&result_value,"MMM","M");
+  ck_assert_int_eq(result_value.error_code, 1);
+  ck_assert_str_eq(result_value.result_str, "INVALID");
+}
+END_TEST
 
-// START_TEST(test_subtraction_that_gives_negative_value_will_cause_error)
-// {
-//   subtract(result_str,"L","M");
-// }
-// END_TEST
+START_TEST(test_subtraction_that_gives_negative_value_will_cause_error)
+{
+  subtract(&result_value,"L","M");
+  ck_assert_int_eq(result_value.error_code, 1);
+  ck_assert_str_eq(result_value.result_str, "INVALID");
+}
+END_TEST
 
 START_TEST(test_subtraction_that_gives_zero_value_will_cause_error)
 {
@@ -143,10 +151,10 @@ int main(void)
     tcase_add_test(test_roman_calculator, test_add_IM_and_Anything_gives_error);
     tcase_add_test(test_roman_calculator, test_subtract_IM_and_Anything_gives_error);
     tcase_add_test(test_roman_calculator, test_add_Anything_and_IM_gives_error);
-    //tcase_add_exit_test(test_roman_calculator, test_value_over_4000_entered_first_entry, 2);
-    //tcase_add_exit_test(test_roman_calculator, test_value_over_4000_entered_second_entry, 2);
-    //tcase_add_exit_test(test_roman_calculator, test_adding_values_gives_4000, 2);
-    //tcase_add_exit_test(test_roman_calculator, test_subtraction_that_gives_negative_value_will_cause_error, 4);
+    tcase_add_test(test_roman_calculator, test_value_over_4000_entered_first_entry);
+    tcase_add_test(test_roman_calculator, test_value_over_4000_entered_second_entry);
+    tcase_add_test(test_roman_calculator, test_adding_values_gives_4000);
+    tcase_add_test(test_roman_calculator, test_subtraction_that_gives_negative_value_will_cause_error);
     tcase_add_test(test_roman_calculator, test_subtraction_that_gives_zero_value_will_cause_error);
     
     srunner_run_all(sr, CK_ENV);
