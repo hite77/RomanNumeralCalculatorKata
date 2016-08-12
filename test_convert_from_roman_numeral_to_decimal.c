@@ -109,35 +109,35 @@ START_TEST(test_convert_XD_returns_negative_one)
 }
 END_TEST
 
-// START_TEST(test_value_larger_than_3999)
-// {
-// 	convert_to_decimal("MMMM");
-// }
-// END_TEST
+START_TEST(test_value_larger_than_3999)
+{
+	ck_assert_int_eq(convert_to_decimal("MMMM"), -1);
+}
+END_TEST
 
-// START_TEST(test_VV_is_invalid)
-// {
-// 	convert_to_decimal("VV");
-// }
-// END_TEST
+START_TEST(test_VV_is_invalid)
+{
+	ck_assert_int_eq(convert_to_decimal("VV"), -1);
+}
+END_TEST
 
-// START_TEST(test_VVV_is_invalid)
-// {
-// 	convert_to_decimal("VVVII");
-// }
-// END_TEST
+START_TEST(test_VVV_is_invalid)
+{
+	ck_assert_int_eq(convert_to_decimal("VVVII"), -1);
+}
+END_TEST
 
-// START_TEST(test_LL_is_invalid)
-// {
-// 	convert_to_decimal("LL");
-// }
-// END_TEST
+START_TEST(test_LL_is_invalid)
+{
+	ck_assert_int_eq(convert_to_decimal("LL"), -1);
+}
+END_TEST
 
-// START_TEST(test_DD_is_invalid)
-// {
-// 	convert_to_decimal("DD");
-// }
-// END_TEST
+START_TEST(test_DD_is_invalid)
+{
+	ck_assert_int_eq(convert_to_decimal("DD"), -1);
+}
+END_TEST
 
 int main(void)
 {
@@ -163,11 +163,11 @@ int main(void)
 	tcase_add_test(tc1_1, test_convert_M_to_decimal);
 	tcase_add_test(tc1_1, test_convert_CM_to_decimal_additional_coverage);
 	tcase_add_test(tc1_1, test_convert_MMMCMXCIX_to_decimal_additional_coverage);
-	// tcase_add_exit_test(tc1_1, test_VV_is_invalid, 3);
-	// tcase_add_exit_test(tc1_1, test_LL_is_invalid, 3);
-	// tcase_add_exit_test(tc1_1, test_DD_is_invalid, 3);
-	// tcase_add_exit_test(tc1_1, test_VVV_is_invalid, 3);
-	// tcase_add_exit_test(tc1_1, test_value_larger_than_3999, 2);
+	tcase_add_test(tc1_1, test_VV_is_invalid);
+	tcase_add_test(tc1_1, test_LL_is_invalid);
+	tcase_add_test(tc1_1, test_DD_is_invalid);
+	tcase_add_test(tc1_1, test_VVV_is_invalid);
+	tcase_add_test(tc1_1, test_value_larger_than_3999);
 	tcase_add_test(tc1_1, test_convert_IM_returns_negative_one);
 	tcase_add_test(tc1_1, test_convert_XD_returns_negative_one);
 

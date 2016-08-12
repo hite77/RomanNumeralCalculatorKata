@@ -8,6 +8,7 @@ typedef struct roman_value_orders
 	int order;
 } roman_value_order;
 
+int error = -1;
 int max_multiplier = 10;
 int max_roman_integer = 3999;
 
@@ -32,18 +33,13 @@ roman_value_order find_value(int value)
 	}
 }
 
-void exit_on_illegal_duplicate_values(char roman_text[])
-{
-	if(strstr(roman_text, "VV") || strstr(roman_text, "DD") || strstr(roman_text, "LL"))
-	{
-		exit(3);
-	}
-}
-
 int convert_to_decimal(char roman_text[])
 {
 	int result = 0;
-	exit_on_illegal_duplicate_values(roman_text);
+	if(strstr(roman_text, "VV") || strstr(roman_text, "DD") || strstr(roman_text, "LL"))
+	{
+		return error;	
+	}
 	for(int i = 0; roman_text[i] != '\0'; i++) {
     	roman_value_order current_value=find_value(roman_text[i]);
 		roman_value_order next_value;
@@ -59,11 +55,11 @@ int convert_to_decimal(char roman_text[])
 		} 	
 		else
 		{
-			return -1;
+			return error;
 		}
 		if (result > max_roman_integer)
 		{
-			exit(2);
+			return error;
 		}
     }
 	return result;
