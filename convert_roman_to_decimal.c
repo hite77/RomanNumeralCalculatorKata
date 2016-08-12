@@ -59,7 +59,7 @@ int convert_to_decimal(char roman_text[])
 		} 	
 		else
 		{
-			exit(1);
+			return -1;
 		}
 		if (result > max_roman_integer)
 		{

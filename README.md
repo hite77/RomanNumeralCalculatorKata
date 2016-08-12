@@ -13,13 +13,16 @@ It does not compile on mac now, it has a -lrt option that Mac does not need, but
 
 add/subtract/convert when appropriate will return with the following:
 
-*0: Nothing wrong
-*1: You tried to enter a roman digit with a multiplier too large (smaller than 10 times: aka IM)
-*2: 4000 or greater entered, or result of add greater than 4000
-*3: V, L, or D more than one (VV is invalid)
-*4: Subtract gives negative value or zero.
+*0: good
 
-If any of the codes above 1 are returned the answer returned will be 0, which itself is an invalid answer.
+*1: One or more of the following were wrong: 
+
+*You tried to enter a roman digit with a multiplier too large (smaller than 10 times: aka IM)
+*4000 or greater entered, or result of add greater than 4000
+*V, L, or D more than one (VV is invalid)
+*Subtract gives negative value or zero.
+
+If any of the codes above 0 are returned the answer returned will be "INVALID"
 
 Thanks,
 

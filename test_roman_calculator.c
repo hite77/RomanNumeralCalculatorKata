@@ -63,20 +63,34 @@ START_TEST(test_subtract_CII_and_LV)
 {
     subtract(&result_value,"CII","LV");
     ck_assert_str_eq(result_value.result_str, "XLVII");
+    ck_assert_int_eq(result_value.error_code, 0);
 }
 END_TEST
 
-// START_TEST(test_add_IM_and_Anything_gives_error)
-// {
-//   add(result_str,"IM","D");
-// }
-// END_TEST
+START_TEST(test_add_IM_and_Anything_gives_error)
+{
+  add(&result_value,"IM","D");
+  ck_assert_int_eq(result_value.error_code, 1);
+  ck_assert_str_eq(result_value.result_str, "INVALID");
+}
+END_TEST
 
-// START_TEST(test_add_Anything_and_IM_gives_error)
-// {
-//   add(result_str,"D","IM");
-// }
-// END_TEST
+START_TEST(test_subtract_IM_and_Anything_gives_error)
+{
+  subtract(&result_value,"IM","D");
+  ck_assert_int_eq(result_value.error_code, 1);
+  ck_assert_str_eq(result_value.result_str, "INVALID");
+}
+END_TEST
+
+
+START_TEST(test_add_Anything_and_IM_gives_error)
+{
+  add(&result_value,"D","IM");
+  ck_assert_int_eq(result_value.error_code, 1);
+  ck_assert_str_eq(result_value.result_str, "INVALID");
+}
+END_TEST
 
 // START_TEST(test_value_over_4000_entered_first_entry)
 // {
@@ -102,11 +116,13 @@ END_TEST
 // }
 // END_TEST
 
-// START_TEST(test_subtraction_that_gives_zero_value_will_cause_error)
-// {
-//   subtract(result_str,"L","L");
-// }
-// END_TEST
+START_TEST(test_subtraction_that_gives_zero_value_will_cause_error)
+{
+  subtract(&result_value,"L","L");
+  ck_assert_int_eq(result_value.error_code, 1);
+  ck_assert_str_eq(result_value.result_str, "INVALID");
+}
+END_TEST
 
 int main(void)
 {
@@ -124,13 +140,14 @@ int main(void)
     tcase_add_test(test_roman_calculator, test_subtract_MCMXCIX_and_I);
     tcase_add_test(test_roman_calculator, test_subtract_MM_and_I);
     tcase_add_test(test_roman_calculator, test_subtract_CII_and_LV);
-    //tcase_add_exit_test(test_roman_calculator, test_add_IM_and_Anything_gives_error, 1);
-    //tcase_add_exit_test(test_roman_calculator, test_add_Anything_and_IM_gives_error, 1);
+    tcase_add_test(test_roman_calculator, test_add_IM_and_Anything_gives_error);
+    tcase_add_test(test_roman_calculator, test_subtract_IM_and_Anything_gives_error);
+    tcase_add_test(test_roman_calculator, test_add_Anything_and_IM_gives_error);
     //tcase_add_exit_test(test_roman_calculator, test_value_over_4000_entered_first_entry, 2);
     //tcase_add_exit_test(test_roman_calculator, test_value_over_4000_entered_second_entry, 2);
     //tcase_add_exit_test(test_roman_calculator, test_adding_values_gives_4000, 2);
     //tcase_add_exit_test(test_roman_calculator, test_subtraction_that_gives_negative_value_will_cause_error, 4);
-    //tcase_add_exit_test(test_roman_calculator, test_subtraction_that_gives_zero_value_will_cause_error, 4);
+    tcase_add_test(test_roman_calculator, test_subtraction_that_gives_zero_value_will_cause_error);
     
     srunner_run_all(sr, CK_ENV);
     nf = srunner_ntests_failed(sr);
